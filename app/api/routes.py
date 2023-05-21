@@ -11,4 +11,4 @@ def read_root():
 @router.get("/predict/{url}")
 def predict(url: str):
     
-    return {"url": url, "response": predict_url(url)}
+    return predict_url(url)
