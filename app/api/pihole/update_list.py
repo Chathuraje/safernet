@@ -18,7 +18,7 @@ def __check_domain_status(domain, list_type):
     return 0
 
 def __check_all_the_list(domain):
-    list_type =  ["regex_white", "regex_black"]
+    list_type = ["white", "black", "regex_white", "regex_black"]
     
     for item in list_type:
         if __check_domain_status(domain, item) == 1:

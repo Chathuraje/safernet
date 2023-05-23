@@ -36,6 +36,6 @@ def view_list(list_type: ListType):
 
 
 @router.get("/domains/list")
-def view_complete_list(list_type: ListType):
+def view_complete_list():
     
     return update_list.view_complete_list(list_type.value)
