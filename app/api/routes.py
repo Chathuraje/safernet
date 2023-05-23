@@ -20,6 +20,8 @@ def predict(url: str):
 class ListType(str, Enum):
     blacklist = "regex_black"
     whitelist = "regex_white"
+    white = "white"
+    black = "black"
 
 @router.get("/add_domain/{list_type}/{url}")
 def add_domain(url: str, list_type: ListType):

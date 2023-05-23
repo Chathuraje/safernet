@@ -17,6 +17,15 @@ def __check_domain_status(domain, list_type):
     
     return 0
 
+def __check_all_the_list(domain):
+    list_type =  ["regex_white", "regex_black"]
+    
+    for item in list_type:
+        if __check_domain_status(domain, item) == 1:
+            return 1
+    
+    return 0
+
 
 def __add_domain_to_list(domain, list_type):
     payload = {
@@ -31,7 +40,7 @@ def __add_domain_to_list(domain, list_type):
         
     
 def add_domain(domain, list_type):
-    if __check_domain_status(domain, list_type) == 1:
+    if __check_all_the_list(domain) == 1:
         return {"success": "False", "message": f"{domain}: Domain already in the list."}
 
     if __add_domain_to_list(domain, list_type) == True:
