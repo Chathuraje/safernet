@@ -17,3 +17,5 @@ jobs:
     - name: Restart SaferNet API service
       run: |
         sudo systemctl restart safernet-api
+      env:
+        PI_HOLE_API_KEY: ${{ secrets.PI_HOLE_API_KEY }}
