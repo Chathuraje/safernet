@@ -23,10 +23,15 @@ class ListType(str, Enum):
     white = "white"
     black = "black"
 
-@router.get("/add_domain/{list_type}/{url}")
+@router.get("/add/{list_type}/{url}")
 def add_domain(url: str, list_type: ListType):
     
     return update_list.add_domain(url, list_type.value)
+
+@router.get("/check/{url}")
+def add_domain(url: str):
+    
+    return update_list.check_domain(url)
 
 @router.get("/domains")
 def view_complete_list():

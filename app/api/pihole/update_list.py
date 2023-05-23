@@ -22,9 +22,9 @@ def __check_all_the_list(domain):
     
     for item in list_type:
         if __check_domain_status(domain, item) == 1:
-            return 1
+            return 1, item
     
-    return 0
+    return 0, 0
 
 
 def __add_domain_to_list(domain, list_type):
@@ -40,7 +40,8 @@ def __add_domain_to_list(domain, list_type):
         
     
 def add_domain(domain, list_type):
-    if __check_all_the_list(domain) == 1:
+    list_data, _ = __check_all_the_list(domain)
+    if list_data == 1:
         return {"success": "False", "message": f"{domain}: Domain already in the list."}
 
     if __add_domain_to_list(domain, list_type) == True:
@@ -73,3 +74,12 @@ def view_complete_list():
                 complete_list.append(domain)
     
     return complete_list
+
+
+
+def check_domain(url):
+    list_data, list_type = __check_all_the_list(url)
+    if list_data == 1:
+        return {"list_type": list_type}
+    else:
+        return {"list_type": list_type}
