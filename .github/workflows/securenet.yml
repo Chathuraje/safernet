@@ -14,8 +14,9 @@ jobs:
         python3 -m venv venv 
         source venv/bin/activate
         pip install -r requirements.txt
+    - name: Create .env File
+      run: |
+        echo 'PI_HOLE_API_KEY="${{ secrets.PI_HOLE_API_KEY }}"' > .env
     - name: Restart SaferNet API service
       run: |
         sudo systemctl restart safernet-api
-      env:
-        PI_HOLE_API_KEY: ${{ secrets.PI_HOLE_API_KEY }}
