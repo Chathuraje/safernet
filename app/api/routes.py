@@ -38,4 +38,4 @@ def view_list(list_type: ListType):
 @router.get("/domains/list")
 def view_complete_list():
     
-    return update_list.view_complete_list(list_type.value)
+    return update_list.view_complete_list()
