@@ -33,3 +33,9 @@ def add_domain(url: str, list_type: ListType):
 def view_list(list_type: ListType):
     
     return update_list.view_list(list_type.value)
+
+
+@router.get("/domains/list")
+def view_complete_list(list_type: ListType):
+    
+    return update_list.view_complete_list(list_type.value)

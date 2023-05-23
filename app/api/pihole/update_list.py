@@ -59,3 +59,13 @@ def view_list(list_type):
     domains = json.loads(response.text)["data"]
     
     return domains
+
+
+def view_complete_list():
+    list_type = ["white", "black", "regex_white", "regex_black"]
+    complete_list = []
+    
+    for item in list_type:
+        complete_list.append(view_list(item))
+    
+    return complete_list
