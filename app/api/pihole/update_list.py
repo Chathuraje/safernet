@@ -75,11 +75,9 @@ def view_complete_list():
     
     return complete_list
 
-
-
 def check_domain(url):
     list_data, list_type = __check_all_the_list(url)
     if list_data == 1:
-        return {"list_type": list_type}
+        return list_type
     else:
-        return {"list_type": list_type}
+        return list_type
