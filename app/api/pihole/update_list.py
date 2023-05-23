@@ -63,9 +63,13 @@ def view_list(list_type):
 
 def view_complete_list():
     list_type = ["white", "black", "regex_white", "regex_black"]
+
     complete_list = []
-    
     for item in list_type:
-        complete_list.append(view_list(item))
+        current_list = view_list(item)
+        for entry in current_list:
+            domain = entry.get('domain')
+            if domain:
+                complete_list.append(domain)
     
     return complete_list

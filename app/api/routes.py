@@ -28,14 +28,13 @@ def add_domain(url: str, list_type: ListType):
     
     return update_list.add_domain(url, list_type.value)
 
+@router.get("/domains")
+def view_complete_list():
+    
+    return update_list.view_complete_list()
+
 
 @router.get("/domains/{list_type}")
 def view_list(list_type: ListType):
     
     return update_list.view_list(list_type.value)
-
-
-@router.get("/domains/list")
-def view_complete_list():
-    
-    return update_list.view_complete_list()
