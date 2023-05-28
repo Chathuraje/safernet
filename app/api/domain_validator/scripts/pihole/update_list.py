@@ -1,14 +1,25 @@
 import requests
 import json
-from app import settings
+# from app import settings
+
+import os
+from dotenv import load_dotenv
+import configparser
+
+load_dotenv()
+
+PIHOLE_API_URL = f"http://pihole.safernet.live/admin/api.php"
+PIHOLE_API_KEY = os.getenv("PI_HOLE_API_KEY") 
+
+
 
 def __check_domain_status(domain, list_type):
     payload = {
-        "auth": settings.PIHOLE_API_KEY,
+        "auth": PIHOLE_API_KEY,
     }
         
     payload["list"] = list_type
-    response = requests.get(settings.PIHOLE_API_URL, params=payload)
+    response = requests.get(PIHOLE_API_URL, params=payload)
     blacklist_domains = json.loads(response.text)["data"]
     
     for item in blacklist_domains:
@@ -31,9 +42,9 @@ def __add_domain_to_list(domain, list_type):
     payload = {
     "add": domain,
     "list": list_type,
-    "auth": settings.PIHOLE_API_KEY,
+    "auth": PIHOLE_API_KEY,
     }
-    response = requests.post(settings.PIHOLE_API_URL, params=payload)
+    response = requests.post(PIHOLE_API_URL, params=payload)
     response_data = json.loads(response.text)["success"]
     
     return response_data
@@ -52,11 +63,11 @@ def add_domain(domain, list_type):
     
 def view_list(list_type):
     payload = {
-        "auth": settings.PIHOLE_API_KEY,
+        "auth": PIHOLE_API_KEY,
     }
         
     payload["list"] = list_type
-    response = requests.get(settings.PIHOLE_API_URL, params=payload)
+    response = requests.get(PIHOLE_API_URL, params=payload)
     domains = json.loads(response.text)["data"]
     
     return domains

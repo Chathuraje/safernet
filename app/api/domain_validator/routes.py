@@ -1,10 +1,11 @@
-from .predict import ai
-from .pihole import update_list
+from .scripts.predict import ai
+from .scripts.pihole import update_list
 from fastapi import APIRouter
 from enum import Enum
 
 router = APIRouter(
-    tags=["api"],
+    tags=["Malicious Domain"],
+    prefix="/domain_validator",
 )
 
 @router.get("/")
