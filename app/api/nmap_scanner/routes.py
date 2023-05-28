@@ -11,12 +11,12 @@ def read_root():
     return {"Hello": "World"}
 
 @router.get("/scan/{ip}")
-def scan_ip(ip: str):
+async def scan_ip(ip: str):
     
     return basic_scripts.scan_domain(ip)
 
 
 @router.get("/vuln_scan/{ip}")
-def scan_ip(ip: str):
+async def scan_ip(ip: str):
     
     return basic_scripts.vuln_scan(ip)

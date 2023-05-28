@@ -8,7 +8,7 @@ def scan_domain(domain: str):
     return {"data": nm}
 
 
-def perform_nmap_scan(target):
+async def perform_nmap_scan(target):
     nm = nmap.PortScanner()
     nm.scan(target, arguments='-p- --script vuln')
 
@@ -21,10 +21,20 @@ def perform_nmap_scan(target):
             "vulnerabilities": nm[host]['vulners']
         }
         results.append(host_info)
+        
+        output_file = f"nmap_scan_{host}.txt"
+        with open(output_file, 'w') as file:
+            for result in results:
+                file.write(f"Host: {result['host']}\n")
+                file.write(f"State: {result['state']}\n")
+                file.write(f"Open Ports: {result['open_ports']}\n")
+                file.write(f"Vulnerabilities: {result['vulnerabilities']}\n")
+                file.write("\n")
 
-    return results
+    return None
 
 
-def vuln_scan(domain: str):
-    scan_results = perform_nmap_scan(domain)
-    return {"results": scan_results}
+async def vuln_scan(domain: str):
+    output_file = f"nmap_scan_{domain}.txt"
+    await perform_nmap_scan(domain, output_file)
+    return {"results": "Result Will be Available Soon, You can download the file from /download/nmap_scan_{domain}.txt"}
