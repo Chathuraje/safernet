@@ -8,7 +8,7 @@ def scan_domain(domain: str):
     return {"data": nm}
 
 
-async def perform_nmap_scan(target):
+def perform_nmap_scan(target):
     nm = nmap.PortScanner()
     nm.scan(target, arguments='-p- --script vuln')
 
@@ -36,5 +36,5 @@ async def perform_nmap_scan(target):
 
 async def vuln_scan(domain: str):
     output_file = f"nmap_scan_{domain}.txt"
-    await perform_nmap_scan(domain, output_file)
+    perform_nmap_scan(domain, output_file)
     return {"results": "Result Will be Available Soon, You can download the file from /download/nmap_scan_{domain}.txt"}
