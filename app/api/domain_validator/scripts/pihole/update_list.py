@@ -8,7 +8,7 @@ import configparser
 
 load_dotenv()
 
-PIHOLE_API_URL = f"http://pihole.safernet.live/admin/api.php"
+PIHOLE_API_URL = f"http://pihole.techincog.com/admin/api.php"
 PIHOLE_API_KEY = os.getenv("PI_HOLE_API_KEY") 
 
 
