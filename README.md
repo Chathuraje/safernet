@@ -1,8 +1,3 @@
-Here is your professionally formatted `README.md` file, ready to be saved and added to your repository:
-
----
-
-````markdown
 # SaferNet
 
 SaferNet is an AI-powered, real-time domain and URL validation platform designed to enhance web safety for users and organizations. With a robust API built on FastAPI, SaferNet applies machine learning to accurately classify internet domains as safe or malicious, supporting both automated and manual threat management.
@@ -49,7 +44,7 @@ SaferNet is an AI-powered, real-time domain and URL validation platform designed
    ```bash
    git clone https://github.com/yourusername/safernet.git
    cd safernet
-````
+   ```
 
 2. **Install Dependencies**
 
@@ -134,8 +129,6 @@ See the [LICENSE](LICENSE) file for more details.
 ## 📫 Support & Contact
 
 For feature requests or bugs, please open an issue on [GitHub](https://github.com/Chathuraje/safernet/issues).
-
-```
 
 ---
 
