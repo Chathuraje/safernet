@@ -129,8 +129,3 @@ See the [LICENSE](LICENSE) file for more details.
 ## 📫 Support & Contact
 
 For feature requests or bugs, please open an issue on [GitHub](https://github.com/Chathuraje/safernet/issues).
-
----
-
-Would you like me to export this as a downloadable `.md` file?
-``
